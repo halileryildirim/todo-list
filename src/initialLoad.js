@@ -1,10 +1,7 @@
-import { newTaskButton } from "./buttons";
-import { newProjectButton } from "./buttons";
+//load the functions and modules to keep index clean
 
-const header = document.querySelector("#header");
+import buttonFuncs from "./buttons";
 
-export default function loadPage() {
-    newTaskButton();
-    newProjectButton();
+export default function pageLoad(){
+    buttonFuncs();
 }
-

@@ -3,9 +3,8 @@ import { newProjectButton } from "./buttons";
 
 const header = document.querySelector("#header");
 
-function loadPage() {
+export default function loadPage() {
     newTaskButton();
     newProjectButton();
 }
 
-export default loadPage();

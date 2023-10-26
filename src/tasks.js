@@ -8,6 +8,7 @@ class task {
         this.priority = priority;
     };
 }
-function taskGenerate() {
+
+function taskCreator() {
 
 }

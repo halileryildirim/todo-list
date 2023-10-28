@@ -36,7 +36,7 @@ export default function buttonFuncs(){
         let validity = document.querySelector("#project-form").checkValidity();
         if(validity) {
             event.preventDefault();
-            alert("test");
+            console.log("test");
         }
     });
 

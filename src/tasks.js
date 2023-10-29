@@ -9,7 +9,7 @@ class Task {
     };
 }
 
-export default function taskCreator() {
+export function taskCreator() {
     let title = document.querySelector("#title").value;
     let description = document.querySelector("#description").value;
     let dueDate = document.querySelector("#date").value;

@@ -1,6 +1,7 @@
 //manage buttons functionality
-import taskCreator from "./tasks";
-import projectCreate from "./projects";
+import {taskCreator} from "./tasks";
+import {addTask} from "./projects";
+import {addProject} from "./projects";
 
 const taskBtn = document.querySelector("#task-button");
 const taskDialog = document.querySelector("#task-dialog");
@@ -21,7 +22,7 @@ export default function buttonFuncs(){
         let validity = document.querySelector("#task-form").checkValidity();
         if(validity) {
             event.preventDefault();
-            let defaultTasks = projectCreate(taskCreator());
+            let defaultTasks = addTask(taskCreator());
             console.log(defaultTasks);
         };
     });
@@ -37,7 +38,7 @@ export default function buttonFuncs(){
         let validity = document.querySelector("#project-form").checkValidity();
         if(validity) {
             event.preventDefault();
-            console.log("test");
+            addProject(document.querySelector("#project-name"));
         };
     });
     cancelProj.addEventListener("click", () => {

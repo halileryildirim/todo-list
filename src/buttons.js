@@ -1,5 +1,6 @@
 //manage buttons functionality
 import taskCreator from "./tasks";
+import projectCreate from "./projects";
 
 const taskBtn = document.querySelector("#task-button");
 const taskDialog = document.querySelector("#task-dialog");
@@ -20,8 +21,9 @@ export default function buttonFuncs(){
         let validity = document.querySelector("#task-form").checkValidity();
         if(validity) {
             event.preventDefault();
-            taskCreator();
-        }
+            let defaultTasks = projectCreate(taskCreator());
+            console.log(defaultTasks);
+        };
     });
 
     cancelTask.addEventListener("click", () => {
@@ -31,16 +33,15 @@ export default function buttonFuncs(){
     projectBtn.addEventListener("click", () =>{
         projectDialog.showModal();
     });
-
     confirmProj.addEventListener("click", (event) => {
         let validity = document.querySelector("#project-form").checkValidity();
         if(validity) {
             event.preventDefault();
             console.log("test");
-        }
+        };
     });
-
     cancelProj.addEventListener("click", () => {
         projectDialog.close();
     });
+
 }

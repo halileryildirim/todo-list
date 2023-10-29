@@ -1,0 +1,1 @@
+//update the DOM elements with every change to tasks and projects

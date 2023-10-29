@@ -22,8 +22,8 @@ export default function buttonFuncs(){
         let validity = document.querySelector("#task-form").checkValidity();
         if(validity) {
             event.preventDefault();
-            let defaultTasks = addTask(taskCreator());
-            console.log(defaultTasks);
+            let i = 0;
+            addTask(taskCreator(), i);
         };
     });
 

@@ -1,10 +1,10 @@
 //make a project array. Make a default array for non-project tasks.
-const tasks = [];
-const projects = [tasks];
+export const tasks = [];
+export const projects = [tasks];
 
-export function addTask(task) {
-    tasks.push(task);
-    return tasks;
+export function addTask(task, i) {
+    projects[i].push(task);
+    console.log(projects[i]);
 };
 
 export function addProject(projName) {

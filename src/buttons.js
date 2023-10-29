@@ -2,6 +2,7 @@
 import {taskCreator} from "./tasks";
 import {addTask} from "./projects";
 import {addProject} from "./projects";
+import { taskLoader } from "./domLoader";
 
 const taskBtn = document.querySelector("#task-button");
 const taskDialog = document.querySelector("#task-dialog");
@@ -24,6 +25,7 @@ export default function buttonFuncs(){
             event.preventDefault();
             let i = 0;
             addTask(taskCreator(), i);
+            taskLoader();
         };
     });
 

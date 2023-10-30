@@ -1,6 +1,4 @@
 import { tasks } from "./projects";
-import { projects } from "./projects";
-
 
 export function taskLoader() {
     const content = document.querySelector("#content");
@@ -14,13 +12,23 @@ export function taskLoader() {
     }
 
 }
-/*
-export function projectLoader() {
+
+export function projectLoader(projName) {
     const sidebar = document.querySelector("#sidebar");
-    if(projects.length>1){
-        for(proj in projects) {
-            const 
-        }
-    }
+    const project = document.createElement("div");
+
+    /*
+    const projDelete = document.createElement("button");
+    projDelete.innerText= "Delete Project";
+
+    projDelete.addEventListener("click", () => {
+        
+    })
+    */
+    const projectName = document.createElement("h2");
+    projectName.innerText = projName;
+
+    project.appendChild(projectName);
+    project.appendChild(projDelete);
+    sidebar.appendChild(project);
 }
-*/

@@ -1,4 +1,6 @@
 //make a project array. Make a default array for non-project tasks.
+import { projectLoader } from "./domLoader";
+
 export const tasks = [];
 export const projects = [tasks];
 
@@ -10,5 +12,4 @@ export function addTask(task, i) {
 export function addProject(projName) {
     projName = [];
     projects.push(projName);
-    console.log(projects);
 }

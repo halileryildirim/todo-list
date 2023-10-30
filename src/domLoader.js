@@ -2,15 +2,22 @@ import { tasks } from "./projects";
 
 export function taskLoader() {
     const content = document.querySelector("#content");
-    if(tasks.length>0){
         content.replaceChildren();
         for(let task in tasks) {
             const taskDiv = document.createElement("div");
-            taskDiv.innerText = `${tasks[task].title} is the title.`;
-            content.append(taskDiv);
-        }
-    }
+            if(tasks[task].priority == "medium") {
+                taskDiv.innerText = `${tasks[task].title} medium`;
+                content.append(taskDiv);
+            }
+            else if(tasks[task].priority == "high") {
+                taskDiv.innerText = `${tasks[task].title} high`;
+                content.append(taskDiv);
+            }
+            else
+                taskDiv.innerText = `${tasks[task].title} low`;
+                content.append(taskDiv);
 
+        }
 }
 
 export function projectLoader(projName) {

@@ -29,6 +29,6 @@ export function projectLoader(projName) {
     projectName.innerText = projName;
 
     project.appendChild(projectName);
-    project.appendChild(projDelete);
+    //project.appendChild(projDelete);
     sidebar.appendChild(project);
 }

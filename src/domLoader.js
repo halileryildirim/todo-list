@@ -1,6 +1,4 @@
-import { tasks } from "./projects";
-
-export function taskLoader() {
+export function taskLoader(tasks) {
     const content = document.querySelector("#content");
         content.replaceChildren();
         for(let task in tasks) {

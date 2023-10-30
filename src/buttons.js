@@ -23,7 +23,7 @@ export default function buttonFuncs(){
         let validity = document.querySelector("#task-form").checkValidity();
         if(validity) {
             event.preventDefault();
-            let i = 0;
+            let i = 1;
             addTask(taskCreator(), i);
             taskLoader();
         };

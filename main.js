@@ -16,17 +16,7 @@
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ buttonFuncs)\n/* harmony export */ });\n/* harmony import */ var _tasks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks */ \"./src/tasks.js\");\n/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./projects */ \"./src/projects.js\");\n/* harmony import */ var _domLoader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./domLoader */ \"./src/domLoader.js\");\n//manage buttons functionality\n\n\n\n\n\nconst taskBtn = document.querySelector(\"#task-button\");\nconst taskDialog = document.querySelector(\"#task-dialog\");\nconst confirmTask = document.querySelector(\"#confirm-task\");\nconst cancelTask = document.querySelector(\"#cancel-task\");\n\nconst projectBtn = document.querySelector(\"#project-button\");\nconst projectDialog = document.querySelector(\"#project-dialog\");\nconst confirmProj = document.querySelector(\"#confirm-project\");\nconst cancelProj = document.querySelector(\"#cancel-project\");\n\nfunction buttonFuncs(){\n    taskBtn.addEventListener(\"click\", () =>{\n        taskDialog.showModal();\n    });\n\n    confirmTask.addEventListener(\"click\", (event) => {\n        let validity = document.querySelector(\"#task-form\").checkValidity();\n        if(validity) {\n            event.preventDefault();\n            let i = 1;\n            (0,_projects__WEBPACK_IMPORTED_MODULE_1__.addTask)((0,_tasks__WEBPACK_IMPORTED_MODULE_0__.taskCreator)(), i);\n            (0,_domLoader__WEBPACK_IMPORTED_MODULE_2__.taskLoader)();\n        };\n    });\n\n    cancelTask.addEventListener(\"click\", () => {\n        taskDialog.close();\n    });\n\n    projectBtn.addEventListener(\"click\", () =>{\n        projectDialog.showModal();\n    });\n    confirmProj.addEventListener(\"click\", (event) => {\n        let validity = document.querySelector(\"#project-form\").checkValidity();\n        if(validity) {\n            event.preventDefault();\n            (0,_projects__WEBPACK_IMPORTED_MODULE_1__.addProject)(document.querySelector(\"#project-name\"));\n            (0,_domLoader__WEBPACK_IMPORTED_MODULE_2__.projectLoader)(document.querySelector(\"#project-name\").value);\n        };\n    });\n    cancelProj.addEventListener(\"click\", () => {\n        projectDialog.close();\n    });\n\n}\n\n\n//# sourceURL=webpack://todo-list/./src/buttons.js?");
-
-/***/ }),
-
-/***/ "./src/domLoader.js":
-/*!**************************!*\
-  !*** ./src/domLoader.js ***!
-  \**************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   projectLoader: () => (/* binding */ projectLoader),\n/* harmony export */   taskLoader: () => (/* binding */ taskLoader)\n/* harmony export */ });\nfunction taskLoader(tasks) {\n    const content = document.querySelector(\"#content\");\n        content.replaceChildren();\n        for(let task in tasks) {\n            const taskDiv = document.createElement(\"div\");\n            if(tasks[task].priority == \"medium\") {\n                taskDiv.innerText = `${tasks[task].title} medium`;\n                content.append(taskDiv);\n            }\n            else if(tasks[task].priority == \"high\") {\n                taskDiv.innerText = `${tasks[task].title} high`;\n                content.append(taskDiv);\n            }\n            else\n                taskDiv.innerText = `${tasks[task].title} low`;\n                content.append(taskDiv);\n\n        }\n}\n\nfunction projectLoader(projName) {\n    const sidebar = document.querySelector(\"#sidebar\");\n    const project = document.createElement(\"div\");\n\n    /*\n    const projDelete = document.createElement(\"button\");\n    projDelete.innerText= \"Delete Project\";\n\n    projDelete.addEventListener(\"click\", () => {\n        \n    })\n    */\n    const projectName = document.createElement(\"h2\");\n    projectName.innerText = projName;\n\n    project.appendChild(projectName);\n    //project.appendChild(projDelete);\n    sidebar.appendChild(project);\n}\n\n\n//# sourceURL=webpack://todo-list/./src/domLoader.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ buttonFuncs)\n/* harmony export */ });\nconst taskBtn = document.querySelector(\"#task-button\");\nconst taskDialog = document.querySelector(\"#task-dialog\");\nconst confirmTask = document.querySelector(\"#confirm-task\");\nconst cancelTask = document.querySelector(\"#cancel-task\");\n\nconst projectBtn = document.querySelector(\"#project-button\");\nconst projectDialog = document.querySelector(\"#project-dialog\");\nconst confirmProj = document.querySelector(\"#confirm-project\");\nconst cancelProj = document.querySelector(\"#cancel-project\");\n\nfunction buttonFuncs(){\n    taskBtn.addEventListener(\"click\", () =>{\n        taskDialog.showModal();\n    });\n\n    confirmTask.addEventListener(\"click\", (event) => {\n        let validity = document.querySelector(\"#task-form\").checkValidity();\n        if(validity) {\n            event.preventDefault();\n        };\n    });\n\n    cancelTask.addEventListener(\"click\", () => {\n        taskDialog.close();\n    });\n\n    projectBtn.addEventListener(\"click\", () =>{\n        projectDialog.showModal();\n    });\n    confirmProj.addEventListener(\"click\", (event) => {\n        let validity = document.querySelector(\"#project-form\").checkValidity();\n        if(validity) {\n            event.preventDefault();\n            \n        };\n    });\n    cancelProj.addEventListener(\"click\", () => {\n        projectDialog.close();\n    });\n\n}\n\n\n//# sourceURL=webpack://todo-list/./src/buttons.js?");
 
 /***/ }),
 
@@ -47,26 +37,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ini
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ pageLoad)\n/* harmony export */ });\n/* harmony import */ var _buttons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./buttons */ \"./src/buttons.js\");\n//load the functions and modules to keep index clean\n\n\n\nfunction pageLoad(){\n    (0,_buttons__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n}\n\n//# sourceURL=webpack://todo-list/./src/initialLoad.js?");
-
-/***/ }),
-
-/***/ "./src/projects.js":
-/*!*************************!*\
-  !*** ./src/projects.js ***!
-  \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   addProject: () => (/* binding */ addProject),\n/* harmony export */   addTask: () => (/* binding */ addTask),\n/* harmony export */   projects: () => (/* binding */ projects),\n/* harmony export */   tasks: () => (/* binding */ tasks)\n/* harmony export */ });\n//make a project array. Make a default array for non-project tasks.\n\nconst tasks = [];\nconst projects = [tasks];\n\nfunction addTask(task, i) {\n    projects[i].push(task);\n    console.log(projects[i]);\n};\n\nfunction addProject(projName) {\n    projName = [];\n    projects.push(projName);\n}\n\n//# sourceURL=webpack://todo-list/./src/projects.js?");
-
-/***/ }),
-
-/***/ "./src/tasks.js":
-/*!**********************!*\
-  !*** ./src/tasks.js ***!
-  \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   taskCreator: () => (/* binding */ taskCreator)\n/* harmony export */ });\n//retrieve data from html forms, add hide and show for the task button, update the task with form data.  \n\nclass Task {\n    constructor(title, description, dueDate, priority){\n        this.title = title;\n        this.description = description;\n        this.dueDate = dueDate;\n        this.priority = priority;\n    };\n}\n\nfunction taskCreator() {\n    let title = document.querySelector(\"#title\").value;\n    let description = document.querySelector(\"#description\").value;\n    let dueDate = document.querySelector(\"#date\").value;\n    let priority = document.querySelector(\"#priority\").value;\n\n    let task = new Task(title, description, dueDate, priority);\n\n    return task;\n}\n\n//# sourceURL=webpack://todo-list/./src/tasks.js?");
 
 /***/ })
 

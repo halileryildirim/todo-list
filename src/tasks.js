@@ -18,4 +18,8 @@ export function taskCreator() {
     let task = new Task(title, description, dueDate, priority);
 
     return task;
+};
+
+export function taskLoader() {
+    
 }

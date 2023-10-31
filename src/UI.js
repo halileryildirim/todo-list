@@ -1,3 +1,5 @@
+import { projectCreator } from "./projects";
+
 const taskBtn = document.querySelector("#task-button");
 const taskDialog = document.querySelector("#task-dialog");
 const confirmTask = document.querySelector("#confirm-task");
@@ -27,11 +29,12 @@ export default function buttonFuncs(){
     projectBtn.addEventListener("click", () =>{
         projectDialog.showModal();
     });
+
     confirmProj.addEventListener("click", (event) => {
         let validity = document.querySelector("#project-form").checkValidity();
         if(validity) {
             event.preventDefault();
-            
+            projectCreator(document.querySelector("#project-name").value)
         };
     });
     cancelProj.addEventListener("click", () => {

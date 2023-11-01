@@ -1,5 +1,3 @@
-//retrieve data from html forms, add hide and show for the task button, update the task with form data.  
-
 class Task {
     constructor(title, description, dueDate, priority){
         this.title = title;

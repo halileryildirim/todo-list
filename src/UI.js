@@ -1,4 +1,5 @@
 import { projectCreator } from "./projects";
+import { taskCreator } from "./tasks";
 
 const taskBtn = document.querySelector("#task-button");
 const taskDialog = document.querySelector("#task-dialog");

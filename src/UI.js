@@ -1,4 +1,4 @@
-import { projectCreator } from "./projects";
+import { project } from "./projects";
 import { taskCreator } from "./tasks";
 
 const taskBtn = document.querySelector("#task-button");
@@ -17,8 +17,8 @@ export default function buttonFuncs(){
     });
 
     confirmTask.addEventListener("click", (event) => {
-        let validity = document.querySelector("#task-form").checkValidity();
-        if(validity) {
+        let valid = document.querySelector("#task-form").checkValidity();
+        if(valid) {
             event.preventDefault();
         };
     });
@@ -32,10 +32,11 @@ export default function buttonFuncs(){
     });
 
     confirmProj.addEventListener("click", (event) => {
-        let validity = document.querySelector("#project-form").checkValidity();
-        if(validity) {
+        let valid = document.querySelector("#project-form").checkValidity();
+        if(valid) {
             event.preventDefault();
-            projectCreator(document.querySelector("#project-name").value)
+            project.projectCreator(document.querySelector("#project-name").value);
+            project.projectLoader(document.querySelector("#project-name").value);
         };
     });
     cancelProj.addEventListener("click", () => {

@@ -7,7 +7,7 @@ class Task {
     };
 }
 
-export function taskCreator() {
+export function taskCreator(array) {
     let title = document.querySelector("#title").value;
     let description = document.querySelector("#description").value;
     let dueDate = document.querySelector("#date").value;
@@ -15,9 +15,9 @@ export function taskCreator() {
 
     let task = new Task(title, description, dueDate, priority);
 
-    return task;
+    array.push(task);
 };
 
 export function taskLoader() {
-    
+    console.log("task added");
 }

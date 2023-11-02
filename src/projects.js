@@ -1,34 +1,40 @@
-const sidebar = document.querySelector("#sidebar");
-const defaultTasks = [];
-const projects = [defaultTasks];
+import { taskCreator } from "./tasks";
 
-export function projectCreator(projectName) {
-    const proj = [];
-    projects.push(proj);
+export const project =(() =>{
 
-    const project = document.createElement("div");
-    const projName = document.createElement("h2");
-    const projTask = document.createElement("button");
+    const sidebar = document.querySelector("#sidebar");
+    const projects = [];
 
-    projTask.innerText = "Add Task";
-    projName.innerText = projectName;
+    const projectCreator = (projectName) => {
+        const proj = [];
+        proj.id = projectName;
+        projects.push(proj);
+        
+    };
 
-    project.appendChild(projName);
-    project.appendChild(projTask);
-    sidebar.appendChild(project);
+    const projectLoader = (projectName) => {  
+        const project = document.createElement("div");
+        const projName = document.createElement("h2");
+        const projTask = document.createElement("button");
 
+        projTask.innerText = "Add Task";
+        projName.innerText = projectName;
     
-    project.addEventListener("click", () =>{
-        let index = projects.indexOf(proj)
-        console.log(index);
-        console.log(projects);
-    });
+        project.appendChild(projName);
+        project.appendChild(projTask);
+        sidebar.appendChild(project);
 
+        
+        project.addEventListener("click", () =>{
+            console.log(projects);
+            let projectArray = projects.find(element => element.id = projName.innerText);
+        });
     
-    projTask.addEventListener("click", (event) => {
-        event.stopPropagation();
-        document.querySelector("#task-dialog").showModal();
-        console.log(index);
-        console.log(projects);
-    });   
-}
+        projTask.addEventListener("click", (event) => {
+            document.querySelector("#task-dialog").showModal();
+            
+        });
+        
+    }
+    return {projectCreator, projectLoader, projects};
+})();

@@ -19,5 +19,5 @@ export function taskCreator(array) {
 };
 
 export function taskLoader() {
-    console.log("task added");
+    
 }

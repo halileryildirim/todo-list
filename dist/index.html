@@ -11,11 +11,11 @@
     <div id="sidebar">
         <h1>TODO LIST</h1>
         <button id="project-button">Add Project</button>
+        <button id="task-button">Add Task</button>
         <h2>Projects</h2>
         <div class="projects">
             <div class="unassigned-tasks">
-                <h2 id="unassigned-tasks-title">Unassigned Tasks</h2>
-                <button id="task-button">Add Task</button>
+                <h2 id="unassigned-tasks-title">Other Tasks</h2>
             </div>
         </div> 
     </div>
@@ -24,6 +24,12 @@
         <form id="task-form">
             <div>
                 <h3>Add a Task</h3>
+            </div>
+            <div>
+                <label for="project-options">Select Project</label>
+                <select name="project-options" id="project-options">
+                    <option value="other">Other Tasks</option>
+                </select>
             </div>
             <div>
                 <label for="title">Title: </label>

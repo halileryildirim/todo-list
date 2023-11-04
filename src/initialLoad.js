@@ -1,5 +1,5 @@
-import buttonFuncs from "./UI";
+import { UI } from "./UI";
 
 export default function pageLoad(){
-    buttonFuncs();
+    UI.buttonFuncs();
 }

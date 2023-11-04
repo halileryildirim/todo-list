@@ -23,6 +23,9 @@
     <dialog id="task-dialog">
         <form id="task-form">
             <div>
+                <button type="reset" id="task-close-button">X</button>
+            </div>
+            <div>
                 <h3>Add a Task</h3>
             </div>
             <div>
@@ -53,19 +56,20 @@
             </div>
             <div>
                 <button type="submit" id="confirm-task">Add a Task</button>
-                <button type="reset" id="cancel-task">Cancel</button>
             </div>
         </form>
     </dialog>
     <dialog id="project-dialog">
         <form id="project-form">
             <div>
+                <button type="reset" id="project-close-button">X</button>
+            </div>
+            <div>
                 <label for="project-name">Project Name:</label>
                 <input type="text" id="project-name" name="project-name" required>
             </div>
             <div>
                 <button type="submit" id="confirm-project">Add a Project</button>
-                <button type="reset" id="cancel-project">Cancel</button>
             </div>
 
         </form>

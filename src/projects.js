@@ -30,7 +30,7 @@ export const project =(() =>{
     const projectSelector = () => {
         let projectID = document.querySelector("#project-options").value;
         let projIndex = projects.find((elem) => elem.id == projectID);
-        return projects.indexOf(projIndex);
+        return projects[projIndex];
     };
 
     return {projectCreator, projectLoader, projectSelector, projects};

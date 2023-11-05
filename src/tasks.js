@@ -20,7 +20,7 @@ export const task = (() => {
     };
     
     const taskLoader = (array) => {
-
+        
     };
     
     return {taskCreator, taskLoader};

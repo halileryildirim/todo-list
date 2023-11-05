@@ -29,7 +29,8 @@ export const project =(() =>{
 
     const projectSelector = () => {
         let projectID = document.querySelector("#project-options").value;
-        let projIndex = projects.find((elem) => elem.id == projectID);
+        let projIndexFinder = projects.find((elem) => elem.id == projectID);
+        let projIndex = projects.indexOf(projIndexFinder)
         return projects[projIndex];
     };
 

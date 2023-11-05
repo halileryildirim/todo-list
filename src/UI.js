@@ -19,8 +19,7 @@ export const UI = (() => {
             let valid = document.querySelector("#task-form").checkValidity();
             if(valid) {
                 event.preventDefault();
-                let selectedProject = project.projectSelector();
-                task.taskCreator(selectedProject);
+                task.taskCreator(project.projectSelector());
                 console.log(project.projects);
             };
         });

@@ -1,6 +1,6 @@
 export const project =(() =>{
 
-    const sidebar = document.querySelector("#sidebar");
+    const projectDiv = document.querySelector(".projects");
     const options = document.querySelector("#project-options");
     const other = [];
     other.id = "other";
@@ -14,25 +14,32 @@ export const project =(() =>{
 
     const projectLoader = (projectName) => {  
         const project = document.createElement("div");
-        const projName = document.createElement("h2");
+        project.classList = "project";
+        project.innerText = projectName;
         const projOption = document.createElement("option");
-        projName.innerText = projectName;
+        
 
         projOption.value = projectName;
         projOption.innerText = projectName;
 
         options.appendChild(projOption);
-        project.appendChild(projName);
-        sidebar.appendChild(project);
+        projectDiv.appendChild(project);
 
     };
 
     const projectSelector = () => {
-        let projectID = document.querySelector("#project-options").value;
+            let projectID = document.querySelector("#project-options").value;
+            let projIndexFinder = projects.find((elem) => elem.id == projectID);
+            let projIndex = projects.indexOf(projIndexFinder)
+            return projects[projIndex];
+
+    };
+
+    const projectUpdater = (projectID) => {
         let projIndexFinder = projects.find((elem) => elem.id == projectID);
         let projIndex = projects.indexOf(projIndexFinder)
         return projects[projIndex];
     };
 
-    return {projectCreator, projectLoader, projectSelector, projects};
+    return {projectCreator, projectLoader, projectSelector, projectUpdater, projects};
 })();

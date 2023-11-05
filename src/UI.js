@@ -37,7 +37,7 @@ export const UI = (() => {
             };
         });
 
-        projects.addEventListener("click", function (e){
+        projects.addEventListener("click", (e) => {
             if(e.target.classList.contains("project")){
                 let target = e.target.innerText;
                 task.taskLoader(project.projectUpdater(target));

@@ -13,8 +13,11 @@ export const UI = (() => {
     const projectDialog = document.querySelector("#project-dialog");
     const confirmProj = document.querySelector("#confirm-project");
     const closeProj = document.querySelector("#project-close-button");
+    const deleteProj = document.querySelector("#project-delete-button");
 
     const buttonFuncs = () => {
+        console.log(project.projects);
+        project.projectLoader(project.projects);
         taskBtn.addEventListener("click", () =>{taskDialog.showModal();});
         closeTask.addEventListener("click", () =>{taskDialog.close();});
         confirmTask.addEventListener("click", (event) => {
@@ -33,16 +36,23 @@ export const UI = (() => {
             if(valid) {
                 event.preventDefault();
                 project.projectCreator(document.querySelector("#project-name").value);
-                project.projectLoader(document.querySelector("#project-name").value);
+                project.projectLoader(project.projects);
             };
         });
 
         projects.addEventListener("click", (e) => {
+            let target = e.target.innerText;
             if(e.target.classList.contains("project")){
-                let target = e.target.innerText;
                 task.taskLoader(project.projectUpdater(target));
             }
+
+            else if(e.target.classList.contains("project-delete-button")){
+                project.projectRemover(target);
+                project.projectLoader(project.projects);
+            }
         });
+
+        
     };
     
     return {buttonFuncs};

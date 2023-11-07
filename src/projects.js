@@ -12,19 +12,34 @@ export const project =(() =>{
         projects.push(proj);
     };
 
-    const projectLoader = (projectName) => {  
-        const project = document.createElement("div");
-        project.classList = "project";
-        project.innerText = projectName;
-        const projOption = document.createElement("option");
-        
+    const projectLoader = (array) => {
+        if(array.length == 0) {
+            console.log(projects);
+            const noProject = document.createElement("h2");
+            noProject.innerText = "No Projects Found!";
+            projectDiv.replaceChildren(noProject);
+        }
+        else
+            projectDiv.replaceChildren();
+            for(let i = 0; i < array.length; i++) {
+                const project = document.createElement("div");
+                project.classList = "project-container";
+                const projectTitle = document.createElement("h2");
+                projectTitle.classList = "project";
+                projectTitle.innerText = array[i].id;
+                const projDelete = document.createElement("button");
+                projDelete.innerText = "Delete";
+                projDelete.classList = "project-delete-button";
+                const projOption = document.createElement("option");
+                
+                projOption.value = array[i].id;
+                projOption.innerText = array[i].id;
 
-        projOption.value = projectName;
-        projOption.innerText = projectName;
-
-        options.appendChild(projOption);
-        projectDiv.appendChild(project);
-
+                options.appendChild(projOption);
+                project.appendChild(projectTitle);
+                project.appendChild(projDelete);
+                projectDiv.appendChild(project);
+            };
     };
 
     const projectSelector = () => {
@@ -41,5 +56,11 @@ export const project =(() =>{
         return projects[projIndex];
     };
 
-    return {projectCreator, projectLoader, projectSelector, projectUpdater, projects};
+    const projectRemover = (projectID) => {
+        let projIndexFinder = projects.find((elem) => elem.id == projectID);
+        let projIndex = projects.indexOf(projIndexFinder)
+        return projects.splice(projIndex, 1);
+    }
+
+    return {projectCreator, projectLoader, projectSelector, projectUpdater, projectRemover,projects};
 })();

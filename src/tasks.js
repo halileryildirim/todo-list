@@ -21,8 +21,16 @@ export const task = (() => {
     
     const taskLoader = (array) => {
         const content = document.querySelector("#content");
-        content.replaceChildren();
-        for (let i=0; i < array.length; i++) {
+        const noTask = document.createElement("p");
+        noTask.innerText = "No tasks found.";
+
+        if(array.length == 0) {
+            content.replaceChildren(noTask);
+        }
+        else
+            content.replaceChildren();
+            for (let i=0; i < array.length; i++) {
+                
                 const task = document.createElement("div");
                 task.class = "task";
     
@@ -45,11 +53,18 @@ export const task = (() => {
                 const taskPrior = array[i].priority;
                 priorP.innerText = taskPrior;
                 task.appendChild(priorP);
-    
+
+                const editTask = document.createElement("button");
+                editTask.innerText = "Edit";
+                const deleteTask = document.createElement("button");
+                deleteTask.innerText = "Delete";
+
+
+                task.appendChild(editTask);
+                task.appendChild(deleteTask);
                 content.appendChild(task);
-        }
+            };
     };
-    
     return {taskCreator, taskLoader};
     
 })();

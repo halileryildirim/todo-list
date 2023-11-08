@@ -3,7 +3,7 @@ export const project =(() =>{
     const projectDiv = document.querySelector(".projects");
     const options = document.querySelector("#project-options");
     const other = [];
-    other.id = "OTHER TASKS";
+    other.id = "Other";
     const projects = [other];
 
     const projectCreator = (projectName) => {
@@ -14,7 +14,6 @@ export const project =(() =>{
 
     const projectLoader = (array) => {
         if(array.length == 0) {
-            console.log(projects);
             const noProject = document.createElement("h2");
             noProject.innerText = "No Projects Found!";
             projectDiv.replaceChildren(noProject);
@@ -24,15 +23,21 @@ export const project =(() =>{
             for(let i = 0; i < array.length; i++) {
                 const project = document.createElement("div");
                 project.classList = "project-container";
+                project.id = array[i].id;
+
                 const projectTitle = document.createElement("h2");
                 projectTitle.classList = "project";
+                projectTitle.id = array[i].id;
                 projectTitle.innerText = array[i].id;
+
                 const projDelete = document.createElement("button");
                 projDelete.innerText = "Delete";
                 projDelete.classList = "project-delete-button";
+                projDelete.id = array[i].id;
                 const projOption = document.createElement("option");
-                
+                    
                 projOption.value = array[i].id;
+                projOption.id = array[i].id;
                 projOption.innerText = array[i].id;
 
                 options.appendChild(projOption);
@@ -40,6 +45,7 @@ export const project =(() =>{
                 project.appendChild(projDelete);
                 projectDiv.appendChild(project);
             };
+
     };
 
     const projectSelector = () => {
@@ -58,9 +64,13 @@ export const project =(() =>{
 
     const projectRemover = (projectID) => {
         let projIndexFinder = projects.find((elem) => elem.id == projectID);
-        let projIndex = projects.indexOf(projIndexFinder)
+        let projIndex = projects.indexOf(projIndexFinder);
         return projects.splice(projIndex, 1);
+    };
+
+    const projOptionRemover = (projectID) => {
+        
     }
 
-    return {projectCreator, projectLoader, projectSelector, projectUpdater, projectRemover,projects};
+    return {projectCreator, projectLoader, projectSelector, projectUpdater, projectRemover, projects, other};
 })();

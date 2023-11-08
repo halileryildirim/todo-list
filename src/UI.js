@@ -15,7 +15,6 @@ export const UI = (() => {
     const closeProj = document.querySelector("#project-close-button");
 
     const buttonFuncs = () => {
-        project.projectLoader(project.projects);
         taskBtn.addEventListener("click", () =>{taskDialog.showModal();});
         closeTask.addEventListener("click", () =>{taskDialog.close();});
         confirmTask.addEventListener("click", (event) => {
@@ -47,10 +46,8 @@ export const UI = (() => {
 
             else if(e.target.classList.contains("project-delete-button")){
                 let target = e.target.id;
-                console.log(target);
                 project.projectRemover(target);
                 project.projectLoader(project.projects);
-                console.log(project.projects);
             }
         });       
     };

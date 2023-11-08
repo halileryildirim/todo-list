@@ -15,6 +15,7 @@ export const UI = (() => {
     const closeProj = document.querySelector("#project-close-button");
 
     const buttonFuncs = () => {
+        project.projectLoader(project.projects);
         taskBtn.addEventListener("click", () =>{taskDialog.showModal();});
         closeTask.addEventListener("click", () =>{taskDialog.close();});
         confirmTask.addEventListener("click", (event) => {

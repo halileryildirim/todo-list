@@ -7,27 +7,37 @@ export const project =(() =>{
     const projects = [other];
 
     const projectCreator = (projectName) => {
+        //create project array and push to projects array.
         const proj = [];
         proj.id = projectName;
-        projects.push(proj);
+        //search the array for possible duplicate before creating the project.
+        let searchDupe = projects.find(proj => proj.id === projectName);
+        if(searchDupe == undefined) {
+            projects.push(proj);
+        }
+        else
+            alert("You can't create projects with same name.");
+            
     };
 
     const projectLoader = (array) => {
         if(array.length == 0) {
+            //Update the content page if all the projects are deleted.
             const noProject = document.createElement("h2");
             noProject.innerText = "No Projects Found!";
             projectDiv.replaceChildren(noProject);
         }
         else
+            //update content with projects excluding duplicates. 
             projectDiv.replaceChildren();
             for(let i = 0; i < array.length; i++) {
+                //create dynamic projects and append to sidebar.
                 const project = document.createElement("div");
                 project.classList = "project-container";
                 project.id = array[i].id;
 
                 const projectTitle = document.createElement("h2");
                 projectTitle.classList = "project";
-                projectTitle.id = array[i].id;
                 projectTitle.innerText = array[i].id;
 
                 const projDelete = document.createElement("button");
@@ -35,12 +45,20 @@ export const project =(() =>{
                 projDelete.classList = "project-delete-button";
                 projDelete.id = array[i].id;
                 const projOption = document.createElement("option");
-                    
+                
                 projOption.value = array[i].id;
-                projOption.id = array[i].id;
                 projOption.innerText = array[i].id;
-
                 options.appendChild(projOption);
+
+                for(let value in options) {
+                        if(options[value].value != array[i].id) {
+                            projOption.value = array[i].id;
+                            projOption.innerText = array[i].id;
+                            options.appendChild(projOption);
+                        }
+
+                }
+
                 project.appendChild(projectTitle);
                 project.appendChild(projDelete);
                 projectDiv.appendChild(project);
@@ -49,28 +67,32 @@ export const project =(() =>{
     };
 
     const projectSelector = () => {
+        //select projects for task creation. Variable is not defined.
         let projectID = document.querySelector("#project-options").value;
         let projIndexFinder = projects.find((elem) => elem.id == projectID);
         let projIndex = projects.indexOf(projIndexFinder)
         return projects[projIndex];
-
     };
 
     const projectUpdater = (projectID) => {
+        //update the selected project.
         let projIndexFinder = projects.find((elem) => elem.id == projectID);
         let projIndex = projects.indexOf(projIndexFinder)
         return projects[projIndex];
     };
 
     const projectRemover = (projectID) => {
+        //remove the project option when removing the project.
+        for(let i = 0; i<options.length; i++) {
+            if(options[i].value == projectID) {
+                options.remove(i);
+            }
+        }
+        //find the projects index in array and splice with the found index. 
         let projIndexFinder = projects.find((elem) => elem.id == projectID);
         let projIndex = projects.indexOf(projIndexFinder);
         return projects.splice(projIndex, 1);
     };
-
-    const projOptionRemover = (projectID) => {
-        
-    }
 
     return {projectCreator, projectLoader, projectSelector, projectUpdater, projectRemover, projects, other};
 })();

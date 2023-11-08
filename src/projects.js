@@ -1,5 +1,6 @@
 export const project =(() =>{
 
+    const container = document.querySelector("#content");
     const projectDiv = document.querySelector(".projects");
     const options = document.querySelector("#project-options");
     const other = [];
@@ -26,10 +27,19 @@ export const project =(() =>{
             const noProject = document.createElement("h2");
             noProject.innerText = "No Projects Found!";
             projectDiv.replaceChildren(noProject);
+
+            //Clears the page when all the projects are deleted.                            !!!!!!!!!!!!!!!!!!!!!!!!!
+            container.replaceChildren();
+            
         }
-        else
+
+        else {
             //update content with projects excluding duplicates. 
             projectDiv.replaceChildren();
+            for(let i = 1; i < options.options.length; i++) {
+                options.remove(i);
+                i--;
+            }
             for(let i = 0; i < array.length; i++) {
                 //create dynamic projects and append to sidebar.
                 const project = document.createElement("div");
@@ -44,25 +54,19 @@ export const project =(() =>{
                 projDelete.innerText = "Delete";
                 projDelete.classList = "project-delete-button";
                 projDelete.id = array[i].id;
+
                 const projOption = document.createElement("option");
-                
                 projOption.value = array[i].id;
                 projOption.innerText = array[i].id;
                 options.appendChild(projOption);
 
-                for(let value in options) {
-                        if(options[value].value != array[i].id) {
-                            projOption.value = array[i].id;
-                            projOption.innerText = array[i].id;
-                            options.appendChild(projOption);
-                        }
-
-                }
-
+                
                 project.appendChild(projectTitle);
                 project.appendChild(projDelete);
                 projectDiv.appendChild(project);
             };
+        }
+
 
     };
 

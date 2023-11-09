@@ -15,8 +15,13 @@ export const task = (() => {
         let priority = document.querySelector("#priority").value;
     
         let task = new Task(title, description, dueDate, priority);
-    
-        array.push(task);
+        
+        let searchDupe = array.find(task => task.title === title);
+        if(searchDupe == undefined) {
+            array.push(task);
+        }
+        else
+            alert("You can't add duplicate tasks in same project.");
     };
     
     const taskLoader = (array) => {
@@ -32,7 +37,7 @@ export const task = (() => {
             for (let i=0; i < array.length; i++) {
                 
                 const task = document.createElement("div");
-                task.class = "task";
+                task.classList = "task";
     
                 const titleP = document.createElement("p");
                 const taskTitle = array[i].title;
@@ -56,15 +61,32 @@ export const task = (() => {
 
                 const editTask = document.createElement("button");
                 editTask.innerText = "Edit";
+                editTask.id = taskTitle;
+                editTask.classList = "task-edit-button";
+
                 const deleteTask = document.createElement("button");
                 deleteTask.innerText = "Delete";
+                deleteTask.id = taskTitle;
+                deleteTask.classList.add("task-delete-button", array.id);
 
+                const completeTask = document.createElement("button");
+                completeTask.innerText = "Complete";
+                completeTask.id = taskTitle;
+                completeTask.classList = "task-complete-button";
 
+                task.appendChild(completeTask);
                 task.appendChild(editTask);
                 task.appendChild(deleteTask);
                 content.appendChild(task);
             };
     };
-    return {taskCreator, taskLoader};
+
+    const taskRemover = (array, taskID) => {
+        let taskIndexFinder = array.find((elem) => elem.title == taskID);
+        let taskIndex = array.indexOf(taskIndexFinder);
+        return array.splice(taskIndex, 1);
+    };
+
+    return {taskCreator, taskLoader, taskRemover};
     
 })();

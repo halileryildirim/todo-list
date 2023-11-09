@@ -62,7 +62,7 @@ export const task = (() => {
                 const editTask = document.createElement("button");
                 editTask.innerText = "Edit";
                 editTask.id = taskTitle;
-                editTask.classList = "task-edit-button";
+                editTask.classList.add("task-edit-button", array.id);
 
                 const deleteTask = document.createElement("button");
                 deleteTask.innerText = "Delete";
@@ -86,7 +86,14 @@ export const task = (() => {
         let taskIndex = array.indexOf(taskIndexFinder);
         return array.splice(taskIndex, 1);
     };
+    
+    const taskEditorDialog = (task) => {
+        const filledDialogDiv = document.createElement("div");
+        filledDialogDiv.id = "task-dialog-filled";
+        //add values of task to task-dialog-filled modal.
+        document.getElementById("edited-modal-container").appendChild(filledDialogDiv);
+    }
 
-    return {taskCreator, taskLoader, taskRemover};
+    return {taskCreator, taskLoader, taskRemover, taskEditorDialog};
     
 })();

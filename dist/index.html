@@ -26,7 +26,9 @@
             </div>
             <div>
                 <label for="project-options">Select Project</label>
-                <select name="project-options" id="project-options"></select>
+                <select name="project-options" id="project-options">
+                    <option>Select Project</option>
+                </select>
             </div>
             <div>
                 <label for="title">Title: </label>
@@ -67,6 +69,46 @@
             </div>
         </form>
     </dialog>
-    <div id="edited-modal-container"></div>
+    <div id="edited-modal-container">
+        <dialog id="task-dialog-filled">
+            <form id="task-form">
+                <div>
+                    <button type="reset" id="task-close-button">X</button>
+                </div>
+                <div>
+                    <h3>Edit Task</h3>
+                </div>
+                <div>
+                    <label for="project-options">Change Project</label>
+                    <select name="project-options" id="project-options">
+                        <option>Change Project</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="title-edited">Title: </label>
+                    <input type="text" id="title-edited" name="title-edited"required> 
+                </div>
+                <div>
+                    <label for="description-edited">Description: </label>
+                    <input type="text" id="description-edited" name="description-edited">
+                </div>
+                <div>
+                    <label for="date">Date: </label>
+                    <input type="date" id="date-edited" name="date-edited" required>
+                </div>
+                <div>
+                    <label for="priority-edited">Change Priority:</label>
+                    <select name="priority" id="priority-edited">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+                <div>
+                    <button type="submit" id="confirm-task-edit">Edit Task</button>
+                </div>
+            </form>
+        </dialog>
+    </div>
 </body>
 </html>

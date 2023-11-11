@@ -36,7 +36,7 @@ export const project =(() =>{
         else {
             //update content with projects excluding duplicates. 
             projectDiv.replaceChildren();
-            for(let i = 0; i < options.options.length; i++) {
+            for(let i = 1; i < options.options.length; i++) {
                 options.remove(i);
                 //Reduce i by 1 because options length is reduced with every remove function.
                 i--;

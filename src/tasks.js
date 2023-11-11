@@ -16,6 +16,7 @@ export const task = (() => {
     
         let task = new Task(title, description, dueDate, priority);
         
+        //find returns undefined when requirement is not met, so only push when find is undefined.
         let searchDupe = array.find(task => task.title === title);
         if(searchDupe == undefined) {
             array.push(task);
@@ -88,10 +89,11 @@ export const task = (() => {
     };
     
     const taskEditorDialog = (task) => {
-        const filledDialogDiv = document.createElement("div");
-        filledDialogDiv.id = "task-dialog-filled";
-        //add values of task to task-dialog-filled modal.
-        document.getElementById("edited-modal-container").appendChild(filledDialogDiv);
+        //add values of task to filled modal.
+        //when saved in this modal, instead of making a new task, update the tasks' values with added input.
+        //getting task as input may not be the best practice.
+        const editedDialog = document.querySelector("#task-dialog-filled");
+        
     }
 
     return {taskCreator, taskLoader, taskRemover, taskEditorDialog};

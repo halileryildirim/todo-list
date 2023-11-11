@@ -52,7 +52,7 @@ export const UI = (() => {
             }
             //remove the project, update tasks screen with no tasks.
             else if(e.target.classList.contains("project-delete-button")){
-                let target = taskIndex;
+                let target = e.target.id;
                 project.projectRemover(target);
                 project.projectLoader(project.projects);
                 const noTaskFound = document.createElement("p");
@@ -79,7 +79,8 @@ export const UI = (() => {
                 //get the index of selected task in project
                 let taskIndex = targetArray.indexOf(taskIndexFinder);
                 //create a prefilled form with task values
-                task.taskEditorDialog(targetArray[taskIndex]);
+                //code under this atm is not working
+                //task.taskEditorDialog(targetArray[taskIndex]);
             }
             else if(e.target.classList.contains("task-complete-button")){
                 //add a completed status to tasks's classes so it can be updated via css

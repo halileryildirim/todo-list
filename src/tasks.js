@@ -88,14 +88,22 @@ export const task = (() => {
         return array.splice(taskIndex, 1);
     };
     
-    const taskEditorDialog = (task) => {
+    const fillTaskDialog = (task) => {
         //add values of task to filled modal.
-        //when saved in this modal, instead of making a new task, update the tasks' values with added input.
-        //getting task as input may not be the best practice.
-        const editedDialog = document.querySelector("#task-dialog-filled");
-        
+        document.querySelector("#title-edited").value = task.title;
+        document.querySelector("#description-edited").value = task.description;
+        document.querySelector("#date-edited").value = task.dueDate;
+    };
+    
+    const taskUpdate = (task) => {
+        task.title = document.querySelector("#title-edited").value;
+        task.description = document.querySelector("#description-edited").value;
+        task.dueDate = document.querySelector("#date-edited").value;
+        task.priority = document.querySelector("#priority-edited").value;
+
+        return task;
     }
 
-    return {taskCreator, taskLoader, taskRemover, taskEditorDialog};
+    return {taskCreator, taskLoader, taskRemover, fillTaskDialog, taskUpdate};
     
 })();

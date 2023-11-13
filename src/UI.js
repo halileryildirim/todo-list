@@ -12,7 +12,9 @@ export const UI = (() => {
     const confirmTask = document.querySelector("#confirm-task");
     const closeTask = document.querySelector("#task-close-button");
     const editedDialog = document.querySelector("#task-dialog-filled");
-    
+    const closeEdit = document.querySelector("#taskedit-close-button");
+    const confirmEdit = document.querySelector("#confirm-task-edit");
+
     const projects = document.querySelector(".projects");
     const projectBtn = document.querySelector("#project-button");
     const projectDialog = document.querySelector("#project-dialog");
@@ -86,29 +88,33 @@ export const UI = (() => {
                 const targetArray = project.projectUpdater(e.target.classList[1]);
 
                 //find the selected task in project
-                let taskIndexFinder = targetArray.find((elem) => elem.title == e.target.id);
-                //get the index of selected task in project
-                let taskIndex = targetArray.indexOf(taskIndexFinder);
+                let targetTask = targetArray.find((elem) => elem.title == e.target.id);
+
+                //get the index of selected task in project                
+                let taskIndex = targetArray.indexOf(targetTask);
 
                 //fill the dialog with task info, and show the modal.
-                task.fillTaskDialog(targetArray[taskIndex]);
-                document.querySelector("#task-dialog-filled").showModal();
-                document.querySelector("#confirm-task-edit").addEventListener("click", (e) => {
+                task.fillTaskDialog(targetTask);
+                editedDialog.showModal();
+
+                confirmEdit.addEventListener("click", (e) => {
                     let valid = document.querySelector("#task-form-edited").checkValidity();
                         if(valid) {
                             e.preventDefault();
+                            targetArray[taskIndex] = task.taskUpdate(targetTask);
+                            task.taskLoader(project.projectUpdater(targetArray.id));
                         }; 
                 });
-
-                document.querySelector("#task-close-button").addEventListener("click", (e) => {
-                    e.stopPropagation
-                    document.querySelector("#task-dialog-filled").cancel();
-                });    
             }
             else if(e.target.classList.contains("task-complete-button")){
                 //add a completed status to tasks's classes so it can be updated via css
             }
-        })
+        });
+
+
+
+        closeEdit.addEventListener("click", () => {editedDialog.close();});    
+
     };
     
     return {buttonFuncs};

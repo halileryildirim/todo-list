@@ -3,6 +3,7 @@ export const project =(() =>{
     const container = document.querySelector("#content");
     const projectDiv = document.querySelector(".projects");
     const options = document.querySelector("#project-options");
+    //default loaded task container for the tasks without projects
     const other = [];
     other.id = "Other";
     const projects = [other];

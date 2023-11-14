@@ -1,4 +1,5 @@
 export const task = (() => {
+    //constructor for task object 
     class Task {
         constructor(title, description, dueDate, priority){
             this.title = title;
@@ -9,6 +10,7 @@ export const task = (() => {
     }
 
     const taskCreator = (array) => {
+        //receive the input values and create new tasks dynamically
         let title = document.querySelector("#title").value;
         let description = document.querySelector("#description").value;
         let dueDate = document.querySelector("#date").value;
@@ -16,7 +18,7 @@ export const task = (() => {
     
         let task = new Task(title, description, dueDate, priority);
         
-        //find returns undefined when requirement is not met, so only push when find is undefined.
+        //find returns undefined when requirement is not met, so only push when find is undefined
         let searchDupe = array.find(task => task.title === title);
         if(searchDupe == undefined) {
             array.unshift(task);
@@ -26,6 +28,7 @@ export const task = (() => {
     };
     
     const taskLoader = (array) => {
+        //update content when project has no tasks
         const content = document.querySelector("#content");
         const noTask = document.createElement("p");
         noTask.innerText = "No tasks found.";
@@ -34,6 +37,7 @@ export const task = (() => {
             content.replaceChildren(noTask);
         }
         else
+        //if project has tasks, create a new div for the task and update innerText's with task values
             content.replaceChildren();
             for (let i=0; i < array.length; i++) {
                 
@@ -60,6 +64,7 @@ export const task = (() => {
                 priorP.innerText = taskPrior;
                 task.appendChild(priorP);
 
+                //assign the project's id to task buttons to make task detecting easier.
                 const editTask = document.createElement("button");
                 editTask.innerText = "Edit";
                 editTask.id = taskTitle;
@@ -83,6 +88,7 @@ export const task = (() => {
     };
 
     const taskRemover = (array, taskID) => {
+        //find and remove task from the array with the given ID
         let taskIndexFinder = array.find((elem) => elem.title == taskID);
         let taskIndex = array.indexOf(taskIndexFinder);
         return array.splice(taskIndex, 1);

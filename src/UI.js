@@ -80,7 +80,6 @@ export const UI = (() => {
                 task.taskLoader(targetTaskArray);
             }
             else if(e.target.classList.contains("task-edit-button")){
-                //call the modal but use a function to fill the input with data on tasks
                 //find the tasks's project array
                 let projectID = e.target.classList[1];
                 let targetArray = project.projectUpdater(projectID);

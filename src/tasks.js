@@ -96,13 +96,14 @@ export const task = (() => {
     };
     
     const taskUpdate = (task) => {
-        task.title = document.querySelector("#title-edited").value;
-        task.description = document.querySelector("#description-edited").value;
-        task.dueDate = document.querySelector("#date-edited").value;
-        task.priority = document.querySelector("#priority-edited").value;
-
-        return task;
-    }
+        //run a condition because editing is removing the reference by making task == ""
+        if(task != "") {
+            task.title = document.querySelector("#title-edited").value;
+            task.description = document.querySelector("#description-edited").value;
+            task.dueDate = document.querySelector("#date-edited").value;
+            task.priority = document.querySelector("#priority-edited").value;
+        }
+    };
 
     return {taskCreator, taskLoader, taskRemover, fillTaskDialog, taskUpdate};
     

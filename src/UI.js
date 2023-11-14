@@ -82,13 +82,11 @@ export const UI = (() => {
             else if(e.target.classList.contains("task-edit-button")){
                 //call the modal but use a function to fill the input with data on tasks
                 //find the tasks's project array
-                const targetArray = project.projectUpdater(e.target.classList[1]);
+                let projectID = e.target.classList[1];
+                let targetArray = project.projectUpdater(projectID);
 
                 //find the selected task in project
-                let targetTask = targetArray.find((elem) => elem.title == e.target.id);
-
-                //get the index of selected task in project                
-                let taskIndex = targetArray.indexOf(targetTask);
+                let targetTask = targetArray.find((elem) => elem.title == e.target.id);              
 
                 //fill the dialog with task info, and show the modal.
                 task.fillTaskDialog(targetTask);
@@ -98,9 +96,11 @@ export const UI = (() => {
                     let valid = document.querySelector("#task-form-edited").checkValidity();
                         if(valid) {
                             e.preventDefault();
-                            console.log(targetArray);
-                            targetArray[taskIndex] = task.taskUpdate(targetTask);
+                            task.taskUpdate(targetTask);
                             task.taskLoader(project.projectUpdater(targetArray.id));
+                            //emptying the targetTask value to remove the reference of previous tasks found by targetarray.find
+                            targetTask = "";
+                            editedDialog.close();
                         }; 
                 });
             }

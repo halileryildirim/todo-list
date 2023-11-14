@@ -19,7 +19,7 @@ export const task = (() => {
         //find returns undefined when requirement is not met, so only push when find is undefined.
         let searchDupe = array.find(task => task.title === title);
         if(searchDupe == undefined) {
-            array.push(task);
+            array.unshift(task);
         }
         else
             alert("You can't add duplicate tasks in same project.");

@@ -2,9 +2,6 @@ import { project } from "./projects";
 import { task } from "./tasks";
 
 export const UI = (() => {
-    window.addEventListener("click", () => {
-        console.log(project.projects);
-    })
     //selectors for DOM manipulation
     const tasks = document.querySelector("#content");
     const taskBtn = document.querySelector("#task-button");
@@ -101,6 +98,7 @@ export const UI = (() => {
                     let valid = document.querySelector("#task-form-edited").checkValidity();
                         if(valid) {
                             e.preventDefault();
+                            console.log(targetArray);
                             targetArray[taskIndex] = task.taskUpdate(targetTask);
                             task.taskLoader(project.projectUpdater(targetArray.id));
                         }; 

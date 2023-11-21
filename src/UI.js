@@ -76,6 +76,9 @@ export const UI = (() => {
                 //remove and return the task with the stored project array and id of task.  
                 task.taskRemover(targetTaskArray, e.target.id);
 
+                //update localstorage
+                localStorage.setItem("projects", JSON.stringify(project.projects));
+
                 //update the tasks after removing the target task
                 task.taskLoader(targetTaskArray);
             }
@@ -99,6 +102,8 @@ export const UI = (() => {
                             task.taskLoader(project.projectUpdater(targetArray.id));
                             //emptying the targetTask value to remove the reference of previous tasks found by targetarray.find
                             targetTask = "";
+                            //update localstorage
+                            localStorage.setItem("projects", JSON.stringify(project.projects));
                             editedDialog.close();
                         }; 
                 });

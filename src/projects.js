@@ -7,6 +7,9 @@ export const project =(() =>{
     const other = [];
     other.id = "Other";
     const projects = [other];
+    //add the default projects to local storage
+    localStorage.setItem("projects", JSON.stringify(projects));
+
 
     const projectCreator = (projectName) => {
         //create project array and push to projects array.
@@ -16,6 +19,8 @@ export const project =(() =>{
         let searchDupe = projects.find(proj => proj.id === projectName);
         if(searchDupe == undefined) {
             projects.push(proj);
+            //update the local storage with new project elements
+            localStorage.setItem("projects", JSON.stringify(projects));
         }
         else
             alert("You can't create projects with same name.");

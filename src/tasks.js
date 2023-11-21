@@ -1,3 +1,5 @@
+import { project } from "./projects";
+
 export const task = (() => {
     //constructor for task object 
     class Task {
@@ -22,6 +24,8 @@ export const task = (() => {
         let searchDupe = array.find(task => task.title === title);
         if(searchDupe == undefined) {
             array.unshift(task);
+            //update the local storage with tasks
+            localStorage.setItem("projects", JSON.stringify(project.projects));
         }
         else
             alert("You can't add duplicate tasks in same project.");
@@ -108,7 +112,8 @@ export const task = (() => {
             task.description = document.querySelector("#description-edited").value;
             task.dueDate = document.querySelector("#date-edited").value;
             task.priority = document.querySelector("#priority-edited").value;
-        }
+        };
+        
     };
 
     return {taskCreator, taskLoader, taskRemover, fillTaskDialog, taskUpdate};

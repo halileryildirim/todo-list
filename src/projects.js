@@ -6,7 +6,8 @@ export const project =(() =>{
     //default loaded task container for the tasks without projects
     const other = [];
     other.id = "Other";
-    const projects = [other];
+    let projects = [other];
+    
     //add the default projects to local storage
     localStorage.setItem("projects", JSON.stringify(projects));
 

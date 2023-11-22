@@ -7,6 +7,8 @@ export const project =(() =>{
     const other = [];
     other.id = "Other";
     let projects = [other];
+    //work around this for localstorage start
+    //JSON.parse(localStorage.getItem("projects")) || [];
     
     //add the default projects to local storage
     localStorage.setItem("projects", JSON.stringify(projects));

@@ -60,11 +60,21 @@ export const UI = (() => {
             //remove the project, update tasks screen with no tasks.
             else if(e.target.classList.contains("project-delete-button")){
                 let target = e.target.id;
-                project.projectRemover(target);
-                project.projectLoader(project.projects);
-                const noTaskFound = document.createElement("p");
-                noTaskFound.innerText = "No tasks found!";
-                tasks.replaceChildren(noTaskFound);
+
+                if(target == "Other") {
+                    alert("You can't remove default container for tasks.");
+                }
+
+                else {
+                    project.projectRemover(target);
+                    project.projectLoader(project.projects);
+                    const noTaskFound = document.createElement("p");
+                    noTaskFound.innerText = "No tasks found!";
+                    tasks.replaceChildren(noTaskFound);
+                }
+
+                //update localstorage
+                localStorage.setItem("projects", JSON.stringify(project.projects));
             }
         });
         

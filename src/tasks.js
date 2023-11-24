@@ -21,9 +21,9 @@ export const task = (() => {
         let task = new Task(title, description, dueDate, priority);
         
         //find returns undefined when requirement is not met, so only push when find is undefined
-        let searchDupe = array.find(task => task.title === title);
+        let searchDupe = array.tasks.find(task => task.title === title);
         if(searchDupe == undefined) {
-            array.unshift(task);
+            array.tasks.unshift(task);
             //update the local storage with tasks
             localStorage.setItem("projects", JSON.stringify(project.projects));
         }
@@ -37,34 +37,34 @@ export const task = (() => {
         const noTask = document.createElement("p");
         noTask.innerText = "No tasks found.";
 
-        if(array.length == 0) {
+        if(array.tasks.length == 0) {
             content.replaceChildren(noTask);
         }
         else
         //if project has tasks, create a new div for the task and update innerText's with task values
             content.replaceChildren();
-            for (let i=0; i < array.length; i++) {
+            for (let i=0; i < array.tasks.length; i++) {
                 
                 const task = document.createElement("div");
                 task.classList = "task";
     
                 const titleP = document.createElement("p");
-                const taskTitle = array[i].title;
+                const taskTitle = array.tasks[i].title;
                 titleP.innerText = taskTitle;
                 task.appendChild(titleP);
     
                 const descrP = document.createElement("p");
-                const taskDescr = array[i].description;
+                const taskDescr = array.tasks[i].description;
                 descrP.innerText = taskDescr;
                 task.appendChild(descrP);
     
                 const dateP = document.createElement("p");
-                const taskDate = array[i].dueDate;
+                const taskDate = array.tasks[i].dueDate;
                 dateP.innerText = taskDate;
                 task.appendChild(dateP);
     
                 const priorP = document.createElement("p");
-                const taskPrior = array[i].priority;
+                const taskPrior = array.tasks[i].priority;
                 priorP.innerText = taskPrior;
                 task.appendChild(priorP);
 
@@ -93,9 +93,9 @@ export const task = (() => {
 
     const taskRemover = (array, taskID) => {
         //find and remove task from the array with the given ID
-        let taskIndexFinder = array.find((elem) => elem.title == taskID);
-        let taskIndex = array.indexOf(taskIndexFinder);
-        return array.splice(taskIndex, 1);
+        let taskIndexFinder = array.tasks.find((elem) => elem.title == taskID);
+        let taskIndex = array.tasks.indexOf(taskIndexFinder);
+        return array.tasks.splice(taskIndex, 1);
     };
     
     const fillTaskDialog = (task) => {

@@ -1,13 +1,17 @@
+//create project as objects and give them an array to store the tasks.
+
 export const project =(() =>{
 
     const container = document.querySelector("#content");
     const projectDiv = document.querySelector(".projects");
     const options = document.querySelector("#project-options");
     //default loaded task container for the tasks without projects
-    const other = [];
+    const other = {};
+    other.tasks = [];
     other.id = "Other";
     const projects = [other];
-    //work around this for localstorage start
+
+    console.log(projects);
     //JSON.parse(localStorage.getItem("projects"));
     
     //add the default projects to local storage
@@ -15,8 +19,10 @@ export const project =(() =>{
 
     const projectCreator = (projectName) => {
         //create project array and push to projects array.
-        const proj = [];
+        const proj = {};
         proj.id = projectName;
+        proj.tasks = [];
+        console.log(projects);
         //search the array for possible duplicate before creating the project.
         let searchDupe = projects.find(proj => proj.id === projectName);
         if(searchDupe == undefined) {
@@ -26,6 +32,7 @@ export const project =(() =>{
         }
         else
             alert("You can't create projects with same name.");
+        
             
     };
 
@@ -38,7 +45,6 @@ export const project =(() =>{
 
             //Clears the page when all the projects are deleted.                            !!!!!!!!!!!!!!!!!!!!!!!!!
             container.replaceChildren();
-            
         }
 
         else {
@@ -83,7 +89,7 @@ export const project =(() =>{
         //select projects for task creation. Variable is not defined.
         let projectID = document.querySelector("#project-options").value;
         let projIndexFinder = projects.find((elem) => elem.id == projectID);
-        let projIndex = projects.indexOf(projIndexFinder)
+        let projIndex = projects.indexOf(projIndexFinder);
         return projects[projIndex];
     };
 

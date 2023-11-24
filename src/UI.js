@@ -98,7 +98,7 @@ export const UI = (() => {
                 let targetArray = project.projectUpdater(projectID);
 
                 //find the selected task in project
-                let targetTask = targetArray.find((elem) => elem.title == e.target.id);              
+                let targetTask = targetArray.tasks.find((elem) => elem.title == e.target.id);              
 
                 //fill the dialog with task info, and show the modal.
                 task.fillTaskDialog(targetTask);

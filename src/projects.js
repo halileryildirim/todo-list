@@ -9,9 +9,8 @@ export const project =(() =>{
     const other = {};
     other.tasks = [];
     other.id = "Other";
-    const projects = [other];
-
-    console.log(projects);
+    const projects = JSON.parse(localStorage.getItem("projects")) || [other];
+    //const projects = [other];
     //JSON.parse(localStorage.getItem("projects"));
     
     //add the default projects to local storage
@@ -22,7 +21,6 @@ export const project =(() =>{
         const proj = {};
         proj.id = projectName;
         proj.tasks = [];
-        console.log(projects);
         //search the array for possible duplicate before creating the project.
         let searchDupe = projects.find(proj => proj.id === projectName);
         if(searchDupe == undefined) {

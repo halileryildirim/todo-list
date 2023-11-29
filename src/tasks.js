@@ -85,9 +85,14 @@ export const task = (() => {
                 completeTask.id = taskTitle;
                 completeTask.classList = "task-complete-button";
 
-                task.appendChild(completeTask);
-                task.appendChild(editTask);
-                task.appendChild(deleteTask);
+                //add a container for buttons for styling 
+                const buttoncontainer = document.createElement("div");
+                buttoncontainer.classList = "task-buttons";
+                buttoncontainer.appendChild(completeTask);
+                buttoncontainer.appendChild(editTask);
+                buttoncontainer.appendChild(deleteTask);
+
+                task.appendChild(buttoncontainer);
                 content.appendChild(task);
             };
     };

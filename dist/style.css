@@ -23,4 +23,11 @@ body {
 .task{
     margin: 8px;
     padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.task > p {
+    margin: 0;
 }

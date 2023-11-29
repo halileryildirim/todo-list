@@ -1,3 +1,5 @@
+//add functionality to buttons by calling the project and task functions when clicked.
+
 import { project } from "./projects";
 import { task } from "./tasks";
 

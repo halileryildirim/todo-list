@@ -1,3 +1,4 @@
+//Create task as objects and append the related project objects' task array.
 import { project } from "./projects";
 
 export const task = (() => {
@@ -106,7 +107,7 @@ export const task = (() => {
     };
     
     const taskUpdate = (task) => {
-        //run a condition because editing is removing the reference by making task == ""
+        //run a condition because edit function is removing the reference by making task == ""
         if(task != "") {
             task.title = document.querySelector("#title-edited").value;
             task.description = document.querySelector("#description-edited").value;

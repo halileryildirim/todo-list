@@ -59,7 +59,7 @@ export const project =(() =>{
                 project.classList = "project-container";
                 project.id = array[i].id;
 
-                const projectTitle = document.createElement("h2");
+                const projectTitle = document.createElement("h3");
                 projectTitle.classList = "project";
                 projectTitle.innerText = array[i].id;
 

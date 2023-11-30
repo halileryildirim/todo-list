@@ -24,6 +24,7 @@ export const task = (() => {
         //find returns undefined when requirement is not met, so only push when find is undefined
         let searchDupe = array.tasks.find(task => task.title === title);
         if(searchDupe == undefined) {
+            //unshift to add the latest addition to top.
             array.tasks.unshift(task);
             //update the local storage with tasks
             localStorage.setItem("projects", JSON.stringify(project.projects));
@@ -52,6 +53,7 @@ export const task = (() => {
                 const titleP = document.createElement("p");
                 const taskTitle = array.tasks[i].title;
                 titleP.innerText = taskTitle;
+                titleP.style.fontWeight = 900;
                 task.appendChild(titleP);
     
                 const descrP = document.createElement("p");

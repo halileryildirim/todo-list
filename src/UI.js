@@ -53,16 +53,12 @@ export const UI = (() => {
 
         //render the container with tasks if the project is focused.
         projects.addEventListener("click", (e) => {
-            if(e.target.classList.contains("project")){
-                let target = e.target.innerText;
-                task.taskLoader(project.projectUpdater(target));
-                
-            }
-
             //remove the project, update tasks screen with no tasks.
-            else if(e.target.classList.contains("project-delete-button")){
-                let target = e.target.id;
+            let target = e.target.id;
+            if(e.target.classList.contains("project-delete-button")){
+                e.stopPropagation();
 
+                //prevent default project from being removed by user.
                 if(target == "Other") {
                     alert("You can't remove default container for tasks.");
                 }
@@ -71,13 +67,17 @@ export const UI = (() => {
                     project.projectRemover(target);
                     project.projectLoader(project.projects);
                     const noTaskFound = document.createElement("p");
-                    noTaskFound.innerText = "No tasks found!";
+                    noTaskFound.innerHTML = "No Tasks Found!";
                     tasks.replaceChildren(noTaskFound);
                 }
 
                 //update localstorage
                 localStorage.setItem("projects", JSON.stringify(project.projects));
             }
+            else {
+                task.taskLoader(project.projectUpdater(target));
+            }
+
         });
         
         tasks.addEventListener("click", (e) => {

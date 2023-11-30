@@ -51,6 +51,7 @@ export const project =(() =>{
                 const projectTitle = document.createElement("h2");
                 projectTitle.classList = "project";
                 projectTitle.innerText = array[i].id;
+                projectTitle.id = array[i].id;
 
                 const projDelete = new Image(32, 32);
                 projDelete.src = "https://freesvg.org/img/trash.png";
@@ -63,9 +64,8 @@ export const project =(() =>{
                 projOption.innerText = array[i].id;
                 options.appendChild(projOption);
 
-
- 
-                project.tabIndex = array[i];
+                
+                project.tabIndex = array[i];    //give projects a tabindex to use :focus in css when project is clicked.
                 project.appendChild(projectTitle);
                 project.appendChild(projDelete);
                 projectDiv.appendChild(project);

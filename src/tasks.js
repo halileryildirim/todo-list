@@ -36,7 +36,7 @@ export const task = (() => {
         //update content when project has no tasks
         const content = document.querySelector("#content");
         const noTask = document.createElement("p");
-        noTask.innerText = "No tasks found.";
+        noTask.innerText = "No Tasks Found!";
 
         if(array.tasks.length == 0) {
             content.replaceChildren(noTask);

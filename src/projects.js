@@ -8,7 +8,7 @@ export const project =(() =>{
     //default loaded task container for the tasks without projects
     const other = {};
     other.tasks = [];
-    other.id = "Other";
+    other.id = "OTHER";
     const projects = JSON.parse(localStorage.getItem("projects")) || [other];
     //const projects = [other];
     //JSON.parse(localStorage.getItem("projects"));
@@ -63,7 +63,9 @@ export const project =(() =>{
                 projOption.innerText = array[i].id;
                 options.appendChild(projOption);
 
-                
+
+ 
+                project.tabIndex = array[i];
                 project.appendChild(projectTitle);
                 project.appendChild(projDelete);
                 projectDiv.appendChild(project);

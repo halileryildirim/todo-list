@@ -69,6 +69,20 @@ export const task = (() => {
                 priorP.innerText = "Priority: " + taskPrior;
                 task.appendChild(priorP);
 
+                //check for the tasks's priority and add the correct ID when creating the task.
+
+                if(taskPrior == "HIGH") {
+                    task.id = "high";;
+                }
+
+                else if (taskPrior == "MEDIUM") {
+                    task.id = "medium";;
+                }
+
+                else {
+                    task.id = "low";
+                }
+
                 //assign the project's id to task buttons to make task detecting easier.
                 const editTask = document.createElement("button");
                 editTask.innerText = "Edit";

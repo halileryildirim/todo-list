@@ -35,17 +35,6 @@ export const project =(() =>{
     };
 
     const projectLoader = (array) => {
-        if(array.length == 0) {
-            //Update the content page if all the projects are deleted.
-            const noProject = document.createElement("h2");
-            noProject.innerText = "No Projects Found!";
-            projectDiv.replaceChildren(noProject);
-
-            //Clears the page when all the projects are deleted.                            !!!!!!!!!!!!!!!!!!!!!!!!!
-            container.replaceChildren();
-        }
-
-        else {
             //update content with projects excluding duplicates. 
             projectDiv.replaceChildren();
             for(let i = 1; i < options.options.length; i++) {
@@ -59,15 +48,16 @@ export const project =(() =>{
                 project.classList = "project-container";
                 project.id = array[i].id;
 
-                const projectTitle = document.createElement("h3");
+                const projectTitle = document.createElement("h2");
                 projectTitle.classList = "project";
                 projectTitle.innerText = array[i].id;
 
-                const projDelete = document.createElement("button");
-                projDelete.innerText = "Delete";
+                const projDelete = new Image(32, 32);
+                projDelete.src = "https://freesvg.org/img/trash.png";
                 projDelete.classList = "project-delete-button";
                 projDelete.id = array[i].id;
 
+                //update add task dialog with new and existing project options
                 const projOption = document.createElement("option");
                 projOption.value = array[i].id;
                 projOption.innerText = array[i].id;
@@ -78,9 +68,6 @@ export const project =(() =>{
                 project.appendChild(projDelete);
                 projectDiv.appendChild(project);
             };
-        }
-
-
     };
 
     const projectSelector = () => {

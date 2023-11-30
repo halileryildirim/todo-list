@@ -3,28 +3,46 @@ body {
     width: 100vw;
     display: grid;
     grid-template-columns: 0.5fr 2fr;
+    overflow-x: hidden;
     margin: 0;
 }
 
 
 #content {
-    display: flex;
-    background-color: antiquewhite;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    background-color: #003459;
     gap: 8px;
-    margin-top: 10%;
-    
+    min-height: 100vh;
 }
 
 #sidebar{
-    background-color: beige;
+    padding-top: 25%;
+    background-color: white;
+    padding-left: 10%;
+
 }
 
 .task{
-    margin: 8px;
     padding: 8px;
+    margin: 8px;
     display: grid;
+    grid-template-rows: 0.25fr 1fr 0.25fr 0.25fr 0.25fr;
+    max-width: 200px;
+    height: 310px;
+    text-align: center;
+    background-color: white;
+
 }
 
 .task > p {
     margin: 0;
+    padding: 0px;
+}
+
+.task > div {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
 }

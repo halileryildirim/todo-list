@@ -61,12 +61,12 @@ export const task = (() => {
     
                 const dateP = document.createElement("p");
                 const taskDate = array.tasks[i].dueDate;
-                dateP.innerText = taskDate;
+                dateP.innerText = "Due: " + taskDate;
                 task.appendChild(dateP);
     
                 const priorP = document.createElement("p");
                 const taskPrior = array.tasks[i].priority;
-                priorP.innerText = taskPrior;
+                priorP.innerText = "Priority: " + taskPrior;
                 task.appendChild(priorP);
 
                 //assign the project's id to task buttons to make task detecting easier.

@@ -5,19 +5,22 @@ body {
     grid-template-columns: 0.5fr 2fr;
     overflow-x: hidden;
     margin: 0;
+    background-color: #003459;
 }
 
 
 #content {
+    padding-top: 5%;
+    padding-left: 3%;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    background-color: #003459;
+    background-color: transparent;
     gap: 8px;
     min-height: 100vh;
 }
 
 #sidebar{
-    padding-top: 25%;
+    padding-top: 15%;
     background-color: white;
     padding-left: 10%;
 
@@ -45,4 +48,30 @@ body {
     gap: 4px;
     align-items: center;
     justify-content: center;
+}
+
+#high{
+    border-bottom: solid 16px red; 
+}
+
+#medium{
+    border-bottom: solid 16px green; 
+}
+
+#low{
+    border-bottom: solid 16px beige; 
+}
+
+.project-container {
+    display: block;
+
+}
+
+.project-delete-button{
+    padding: 4px;
+    justify-content: center;
+    align-self: flex-end;
+}
+.project-delete-button:hover {
+    background-color: red ;
 }

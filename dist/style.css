@@ -10,7 +10,7 @@ body {
 }
 
 
-#content {
+#content-card {
     padding-top: 5%;
     padding-left: 3%;
     display: grid;
@@ -77,11 +77,9 @@ body {
     border-radius: 4px;
 }
 
-.project-container > h2 {
-    flex: 2;
-}
 
-.project-container:focus, .project-container:hover {
+
+.project-container:focus {
     background-color: green;
     color: white;
 }

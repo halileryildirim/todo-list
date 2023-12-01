@@ -5,7 +5,7 @@ import { task } from "./tasks";
 
 export const UI = (() => {
     //selectors for DOM manipulation
-    const tasks = document.querySelector("#content");
+    const tasks = document.querySelector("#content-card");
     const taskBtn = document.querySelector("#task-button");
     const taskDialog = document.querySelector("#task-dialog");
     const confirmTask = document.querySelector("#confirm-task");

@@ -1,8 +1,7 @@
 //create project as objects and give them an array to store the tasks.
 
 export const project =(() =>{
-
-    const container = document.querySelector("#content");
+    
     const projectDiv = document.querySelector(".projects");
     const options = document.querySelector("#project-options");
     //default loaded task container for the tasks without projects
@@ -48,7 +47,7 @@ export const project =(() =>{
                 project.classList = "project-container";
                 project.id = array[i].id;
 
-                const projectTitle = document.createElement("h2");
+                const projectTitle = document.createElement("h3");
                 projectTitle.classList = "project";
                 projectTitle.innerText = array[i].id;
                 projectTitle.id = array[i].id;

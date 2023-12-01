@@ -35,7 +35,7 @@ export const task = (() => {
     
     const taskLoader = (array) => {
         //update content when project has no tasks
-        const content = document.querySelector("#content");
+        const content = document.querySelector("#content-card");
         const noTask = document.createElement("p");
         noTask.innerText = "No Tasks Found!";
 

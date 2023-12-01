@@ -32,11 +32,9 @@
     </div>
     <dialog id="task-dialog">
         <form id="task-form">
-            <div>
-                <button type="reset" id="task-close-button">X</button>
-            </div>
-            <div>
+            <div class="dialog-header">
                 <h3>Add Task</h3>
+                <button type="reset" id="task-close-button">X</button>
             </div>
             <div>
                 <label for="project-options">Select Project</label>
@@ -45,15 +43,15 @@
                 </select>
             </div>
             <div>
-                <label for="title">Title: </label>
+                <label for="title">Title</label>
                 <input type="text" id="title" name="title" required> 
             </div>
             <div>
-                <label for="description">Description: </label>
+                <label for="description">Description</label>
                 <input type="text" id="description" name="description">
             </div>
             <div>
-                <label for="date">Date: </label>
+                <label for="date">Date</label>
                 <input type="date" id="date" name="date" required>
             </div>
             <div>
@@ -64,22 +62,22 @@
                     <option value="HIGH">High</option>
                 </select>
             </div>
-            <div>
+            <div class="dialog-footer">
                 <button type="submit" id="confirm-task">Add a Task</button>
             </div>
         </form>
     </dialog>
     <dialog id="project-dialog">
         <form id="project-form">
-            <div id="dialog-header">
+            <div class="dialog-header">
                 <h3>Add Project</h3>
                 <button type="reset" id="project-close-button">X</button>
             </div>
             <div id="dialog-body">
-                <label for="project-name">Project Name:</label>
+                <label for="project-name">Project Name: </label>
                 <input type="text" id="project-name" name="project-name" required>
             </div>
-            <div>
+            <div class="dialog-footer">
                 <button type="submit" id="confirm-project">Add Project</button>
             </div>
         </form>
@@ -87,31 +85,31 @@
     <div id="edited-modal-container">
         <dialog id="task-dialog-filled">
             <form id="task-form-edited">
-                <div id="dialog-header">
+                <div class="dialog-header">
                     <h3>Edit Task</h3>
                     <button type="reset" id="taskedit-close-button">X</button>
                 </div>
                 <div>
-                    <label for="title-edited">Title: </label>
+                    <label for="title-edited">Title</label>
                     <input type="text" id="title-edited" name="title-edited"required> 
                 </div>
                 <div>
-                    <label for="description-edited">Description: </label>
+                    <label for="description-edited">Description</label>
                     <input type="text" id="description-edited" name="description-edited">
                 </div>
                 <div>
-                    <label for="date">Date: </label>
+                    <label for="date">Date</label>
                     <input type="date" id="date-edited" name="date-edited" required>
                 </div>
                 <div>
-                    <label for="priority-edited">Change Priority:</label>
+                    <label for="priority-edited">Change Priority</label>
                     <select name="priority" id="priority-edited">
                         <option value="LOW">Low</option>
                         <option value="MEDIUM">Medium</option>
                         <option value="HIGH">High</option>
                     </select>
                 </div>
-                <div>
+                <div class="dialog-footer">
                     <button type="submit" id="confirm-task-edit">Edit Task</button>
                 </div>
             </form>

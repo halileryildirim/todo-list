@@ -66,13 +66,10 @@ export const task = (() => {
                 dateP.innerText = "Due: " + taskDate;
                 task.appendChild(dateP);
     
-                const priorP = document.createElement("p");
-                const taskPrior = array.tasks[i].priority;
-                priorP.innerText = "Priority: " + taskPrior;
-                task.appendChild(priorP);
-
+                
                 //check for the tasks's priority and add the correct ID when creating the task.
-
+                const taskPrior = array.tasks[i].priority;
+                
                 if(taskPrior == "HIGH") {
                     task.id = "high";;
                 }

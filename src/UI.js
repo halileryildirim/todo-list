@@ -19,6 +19,7 @@ export const UI = (() => {
     const projectDialog = document.querySelector("#project-dialog");
     const confirmProj = document.querySelector("#confirm-project");
     const closeProj = document.querySelector("#project-close-button");
+    const toggleTasks = document.querySelector("#task-view-toggle");
 
     const buttonFuncs = () => {
 
@@ -127,8 +128,16 @@ export const UI = (() => {
 
 
 
-        closeEdit.addEventListener("click", () => {editedDialog.close();});    
-
+        closeEdit.addEventListener("click", () => {editedDialog.close();});
+        
+        toggleTasks.addEventListener("click", () => {
+            if(tasks.className == "content-list") {
+                tasks.classList = "content-card";
+            }
+            else
+                tasks.classList = "content-list"; 
+        })
+        
     };
     
     return {buttonFuncs};

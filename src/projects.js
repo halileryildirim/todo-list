@@ -1,7 +1,7 @@
 //create project as objects and give them an array to store the tasks.
 
 export const project =(() =>{
-    
+
     const projectDiv = document.querySelector(".projects");
     const options = document.querySelector("#project-options");
     //default loaded task container for the tasks without projects
@@ -52,7 +52,7 @@ export const project =(() =>{
                 projectTitle.innerText = array[i].id;
                 projectTitle.id = array[i].id;
 
-                const projDelete = new Image(32, 32);
+                const projDelete = new Image(24, 24);
                 projDelete.src = "https://freesvg.org/img/trash.png";
                 projDelete.classList = "project-delete-button";
                 projDelete.id = array[i].id;

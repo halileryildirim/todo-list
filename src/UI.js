@@ -6,6 +6,7 @@ import { task } from "./tasks";
 export const UI = (() => {
     //selectors for DOM manipulation
     const tasks = document.querySelector("#content-card");
+    const toggleTasks = document.querySelector("#task-view-toggle");
     const taskBtn = document.querySelector("#task-button");
     const taskDialog = document.querySelector("#task-dialog");
     const confirmTask = document.querySelector("#confirm-task");
@@ -19,7 +20,7 @@ export const UI = (() => {
     const projectDialog = document.querySelector("#project-dialog");
     const confirmProj = document.querySelector("#confirm-project");
     const closeProj = document.querySelector("#project-close-button");
-    const toggleTasks = document.querySelector("#task-view-toggle");
+    
 
     const buttonFuncs = () => {
 
@@ -69,6 +70,8 @@ export const UI = (() => {
                     project.projectLoader(project.projects);
                     const noTaskFound = document.createElement("p");
                     noTaskFound.innerHTML = "No Tasks Found!";
+                    noTaskFound.style.color = "white";
+                    noTaskFound.style.fontSize = "24px";
                     tasks.replaceChildren(noTaskFound);
                 }
 

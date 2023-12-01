@@ -6,7 +6,7 @@ body {
     grid-template-columns: 0.4fr 2fr;
     overflow-x: hidden;
     margin: 0;
-    background-color: #003459;
+    background-color: rgb(18,76,129);
 }
 
 .content-card {
@@ -21,7 +21,7 @@ body {
 
 .content-list {
     padding-top: 5%;
-    padding-left: 3%;
+    padding-left: 1%;
     background-color: transparent;
     gap: 8px;
     height: 100vh;
@@ -37,7 +37,6 @@ body {
     height: 50px;
     text-align: inherit;
     border-radius: 10px;
-    line-height: normal;
 }
 
 #sidebar{
@@ -50,13 +49,13 @@ body {
     padding: 8px;
     margin: 8px;
     display: grid;
-    grid-template-rows: 0.3fr 1fr 0.3fr 0.3fr;
+    grid-template-rows: 0.2fr 1fr 0.1fr 0.2fr;
     max-width: 200px;
     height: 310px;
     text-align: center;
     background-color: white;
     border-radius: 10px;
-
+    gap: 8px;
 }
 
 .task > p {
@@ -71,16 +70,16 @@ body {
     justify-content: center;
 }
 
-#high{
-    border-bottom: solid 16px red; 
+.task#high{
+    border-bottom: solid 16px rgb(246,91,93); 
 }
 
-#medium{
-    border-bottom: solid 16px green; 
+.task#medium{
+    border-bottom: solid 16px rgb(255,163,16); 
 }
 
-#low{
-    border-bottom: solid 16px beige; 
+.task#low{
+    border-bottom: solid 16px rgb(3,187,63); 
 }
 
 .project-container {
@@ -97,13 +96,82 @@ body {
     border-radius: 4px;
 }
 
-
-
 .project-container:focus {
-    background-color: green;
+    background-color: rgb(18,76,129);
     color: white;
+    border-bottom-left-radius: 16px;
+
 }
 
 .project-delete-button:hover {
     background-color: red ;
+}
+
+#task-view-toggle {
+    margin-top: 16px;
+    margin-left: 16px;
+    max-height: 32px;
+    max-width: 32px;
+    color: white;
+    padding: 16px;
+    border-radius: 4px;
+}
+
+#task-view-toggle:hover {
+    background-color: white;
+
+}
+
+div#adding-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: flex-start;
+}
+
+#adding-buttons > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    padding: 8px;
+}
+
+#adding-buttons > div:hover {
+    background-color: green;
+    color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+#dialog-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-buttons > .task-complete-button:hover {
+    background-color: greenyellow;
+    border: 2px solid greenyellow;
+}
+
+.task-buttons > .task-edit-button:hover {
+    background-color: aqua;
+    border: 2px solid aqua;
+}
+
+.task-buttons > .task-delete-button:hover {
+    background-color: red;
+    border: 2px solid red;
 }

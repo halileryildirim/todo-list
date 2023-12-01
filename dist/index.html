@@ -10,14 +10,23 @@
 <body>
     <div id="sidebar">
         <h1>TODO LIST</h1>
-        <button id="project-button">Add Project</button>
-        <button id="task-button">Add Task</button>
+        <div id="adding-buttons">
+            <div id="project-button">
+                <div>Add Project</div>
+                <img src="https://img.icons8.com/ios-glyphs/30/plus-math.png">
+            </div>
+            <div id="task-button">
+                <div>Add a Task</div>
+                <img src="https://img.icons8.com/ios-glyphs/30/plus-math.png">
+                
+            </div>
+        </div>
         <h2>Projects</h2>
         <div class="projects"></div> 
     </div>
     <div id="tasks">
         <div>
-            <button id="task-view-toggle">Toggle Task View</button>
+            <img src="https://www.svgrepo.com/show/18461/refresh.svg" id="task-view-toggle">
         </div>
         <div id="content-card" class="content-list"></div>
     </div>
@@ -62,10 +71,11 @@
     </dialog>
     <dialog id="project-dialog">
         <form id="project-form">
-            <div>
+            <div id="dialog-header">
+                <h3>Add Project</h3>
                 <button type="reset" id="project-close-button">X</button>
             </div>
-            <div>
+            <div id="dialog-body">
                 <label for="project-name">Project Name:</label>
                 <input type="text" id="project-name" name="project-name" required>
             </div>
@@ -77,11 +87,9 @@
     <div id="edited-modal-container">
         <dialog id="task-dialog-filled">
             <form id="task-form-edited">
-                <div>
-                    <button type="reset" id="taskedit-close-button">X</button>
-                </div>
-                <div>
+                <div id="dialog-header">
                     <h3>Edit Task</h3>
+                    <button type="reset" id="taskedit-close-button">X</button>
                 </div>
                 <div>
                     <label for="title-edited">Title: </label>

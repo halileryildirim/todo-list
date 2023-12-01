@@ -37,6 +37,8 @@ export const task = (() => {
         //update content when project has no tasks
         const content = document.querySelector("#content-card");
         const noTask = document.createElement("p");
+        noTask.style.color = "white";
+        noTask.style.fontSize = "24px";
         noTask.innerText = "No Tasks Found!";
 
         if(array.tasks.length == 0) {
@@ -69,7 +71,7 @@ export const task = (() => {
                 
                 //check for the tasks's priority and add the correct ID when creating the task.
                 const taskPrior = array.tasks[i].priority;
-                
+
                 if(taskPrior == "HIGH") {
                     task.id = "high";;
                 }
@@ -83,17 +85,18 @@ export const task = (() => {
                 }
 
                 //assign the project's id to task buttons to make task detecting easier.
-                const editTask = document.createElement("button");
-                editTask.innerText = "Edit";
+                const editTask = new Image(24, 24);
+                editTask.src = "https://www.svgrepo.com/show/509911/edit.svg";
                 editTask.id = taskTitle;
                 editTask.classList.add("task-edit-button", array.id);
 
-                const deleteTask = document.createElement("button");
-                deleteTask.innerText = "Delete";
+                const deleteTask = new Image(24, 24);
+                deleteTask.src = "https://www.svgrepo.com/show/502608/delete-2.svg";
                 deleteTask.id = taskTitle;
                 deleteTask.classList.add("task-delete-button", array.id);
 
-                const completeTask = document.createElement("button");
+                const completeTask = new Image(24, 24);
+                completeTask.src = "https://www.svgrepo.com/show/49315/checked-files.svg"
                 completeTask.innerText = "Complete";
                 completeTask.id = taskTitle;
                 completeTask.classList = "task-complete-button";

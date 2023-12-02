@@ -8,6 +8,7 @@ export const project =(() =>{
     const other = {};
     other.tasks = [];
     other.id = "OTHER";
+    other.name = "OTHER";
     const projects = JSON.parse(localStorage.getItem("projects")) || [other];
     //const projects = [other];
     //JSON.parse(localStorage.getItem("projects"));
@@ -18,10 +19,11 @@ export const project =(() =>{
     const projectCreator = (projectName) => {
         //create project array and push to projects array.
         const proj = {};
-        proj.id = projectName;
+        proj.name = projectName;
+        proj.id = projectName.split(" ").join("");
         proj.tasks = [];
         //search the array for possible duplicate before creating the project.
-        let searchDupe = projects.find(proj => proj.id === projectName);
+        let searchDupe = projects.find(proj => proj.id === projectName.split(" ").join(""));
         if(searchDupe == undefined) {
             projects.push(proj);
             //update the local storage with new project elements
@@ -49,7 +51,7 @@ export const project =(() =>{
 
                 const projectTitle = document.createElement("h3");
                 projectTitle.classList = "project";
-                projectTitle.innerText = array[i].id;
+                projectTitle.innerText = array[i].name;
                 projectTitle.id = array[i].id;
 
                 const projDelete = new Image(24, 24);
@@ -60,7 +62,7 @@ export const project =(() =>{
                 //update add task dialog with new and existing project options
                 const projOption = document.createElement("option");
                 projOption.value = array[i].id;
-                projOption.innerText = array[i].id;
+                projOption.innerText = array[i].name;
                 options.appendChild(projOption);
 
                 

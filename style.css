@@ -112,14 +112,9 @@ body {
     margin-left: 16px;
     max-height: 32px;
     max-width: 32px;
-    color: white;
+    background-color: white;
     padding: 16px;
     border-radius: 4px;
-}
-
-#task-view-toggle:hover {
-    background-color: white;
-
 }
 
 div#adding-buttons {

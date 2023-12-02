@@ -99,7 +99,7 @@ export const task = (() => {
                 completeTask.src = "https://www.svgrepo.com/show/49315/checked-files.svg"
                 completeTask.innerText = "Complete";
                 completeTask.id = taskTitle;
-                completeTask.classList = "task-complete-button";
+                completeTask.classList.add("task-complete-button", array.id);
 
                 //add a container for buttons for styling 
                 const buttoncontainer = document.createElement("div");

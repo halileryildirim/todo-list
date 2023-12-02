@@ -68,6 +68,7 @@ export const UI = (() => {
                 else {
                     project.projectRemover(target);
                     project.projectLoader(project.projects);
+                    //when project is removed, task container is updated with no task message
                     const noTaskFound = document.createElement("p");
                     noTaskFound.innerHTML = "No Tasks Found!";
                     noTaskFound.style.color = "white";
@@ -85,26 +86,27 @@ export const UI = (() => {
         });
         
         tasks.addEventListener("click", (e) => {
-            if(e.target.classList.contains("task-delete-button")){
-                //get the second class of the target which is the ID of parent project.
-                const targetTaskArray = project.projectUpdater(e.target.classList[1]);
+            //get the second class of the target which is the ID of parent project.
+            //find the tasks's project array.
+            let projectID = e.target.classList[1];
+            let targetProject = project.projectUpdater(projectID);
 
+
+            //delete button functionality
+            if(e.target.classList.contains("task-delete-button")){
                 //remove and return the task with the stored project array and id of task.  
-                task.taskRemover(targetTaskArray, e.target.id);
+                task.taskRemover(targetProject, e.target.id);
 
                 //update localstorage
                 localStorage.setItem("projects", JSON.stringify(project.projects));
 
                 //update the tasks after removing the target task
-                task.taskLoader(targetTaskArray);
+                task.taskLoader(targetProject);
             }
+            //Edit button functionality
             else if(e.target.classList.contains("task-edit-button")){
-                //find the tasks's project array
-                let projectID = e.target.classList[1];
-                let targetArray = project.projectUpdater(projectID);
-
-                //find the selected task in project
-                let targetTask = targetArray.tasks.find((elem) => elem.title == e.target.id);              
+                //find the selected task in project with ID of button thats added when creating the task.
+                let targetTask = targetProject.tasks.find((elem) => elem.title == e.target.id);              
 
                 //fill the dialog with task info, and show the modal.
                 task.fillTaskDialog(targetTask);
@@ -115,7 +117,7 @@ export const UI = (() => {
                         if(valid) {
                             e.preventDefault();
                             task.taskUpdate(targetTask);
-                            task.taskLoader(project.projectUpdater(targetArray.id));
+                            task.taskLoader(project.projectUpdater(targetProject.id));
                             //emptying the targetTask value to remove the reference of previous tasks found by targetarray.find
                             targetTask = "";
                             //update localstorage
@@ -124,8 +126,10 @@ export const UI = (() => {
                         }; 
                 });
             }
+            //complete button functionality
             else if(e.target.classList.contains("task-complete-button")){
-                //add a completed status to tasks's classes so it can be updated via css
+                e.target.classList.add("completed");
+                localStorage.setItem("projects", JSON.stringify(project.projects));
             }
         });
 

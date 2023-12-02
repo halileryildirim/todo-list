@@ -128,8 +128,6 @@ export const UI = (() => {
             }
         });
 
-
-
         closeEdit.addEventListener("click", () => {editedDialog.close();});
         //using a static ID for functions, variable class name for task view change
         toggleTasks.addEventListener("click", () => {

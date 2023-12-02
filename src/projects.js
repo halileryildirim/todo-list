@@ -10,8 +10,6 @@ export const project =(() =>{
     other.id = "OTHER";
     other.name = "OTHER";
     const projects = JSON.parse(localStorage.getItem("projects")) || [other];
-    //const projects = [other];
-    //JSON.parse(localStorage.getItem("projects"));
     
     //add the default projects to local storage
     localStorage.setItem("projects", JSON.stringify(projects));

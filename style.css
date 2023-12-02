@@ -221,3 +221,16 @@ form {
 .dialog-footer > button:hover {
     background-color: green;
 }
+
+#title-icon {
+    width: 37px;
+    height: 37px;
+}
+
+#title-container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: flex-start;
+    align-items: center;
+}

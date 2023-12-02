@@ -150,14 +150,9 @@ form {
     align-items: center;
 }
 
-.task-buttons > .task-complete-button:hover {
-    background-color: greenyellow;
-    border: 2px solid greenyellow;
-}
-
 .task-buttons > .task-edit-button:hover {
-    background-color: aqua;
-    border: 2px solid aqua;
+    background-color: green;
+    border: 2px solid green;
 }
 
 .task-buttons > .task-delete-button:hover {
@@ -225,9 +220,4 @@ form {
 
 .dialog-footer > button:hover {
     background-color: green;
-}
-
-.task:has(> .task-buttons > img.completed) {
-    background-color: gray;
-    border-bottom: solid 16px gray !important;
 }

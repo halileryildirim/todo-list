@@ -126,11 +126,6 @@ export const UI = (() => {
                         }; 
                 });
             }
-            //complete button functionality
-            else if(e.target.classList.contains("task-complete-button")){
-                e.target.classList.add("completed");
-                localStorage.setItem("projects", JSON.stringify(project.projects));
-            }
         });
 
 

@@ -84,27 +84,20 @@ export const task = (() => {
                     task.id = "low";
                 }
 
-                //assign the project's id to task buttons to make task detecting easier.
-                const editTask = new Image(24, 24);
+                //assign the project's id to task buttons to detect tasks when buttons are used.
+                const editTask = new Image(28, 28);
                 editTask.src = "https://www.svgrepo.com/show/509911/edit.svg";
                 editTask.id = taskTitle;
                 editTask.classList.add("task-edit-button", array.id);
 
-                const deleteTask = new Image(24, 24);
+                const deleteTask = new Image(28, 28);
                 deleteTask.src = "https://www.svgrepo.com/show/502608/delete-2.svg";
                 deleteTask.id = taskTitle;
                 deleteTask.classList.add("task-delete-button", array.id);
 
-                const completeTask = new Image(24, 24);
-                completeTask.src = "https://www.svgrepo.com/show/49315/checked-files.svg"
-                completeTask.innerText = "Complete";
-                completeTask.id = taskTitle;
-                completeTask.classList.add("task-complete-button", array.id);
-
-                //add a container for buttons for styling 
+                //add a container for buttons and styling 
                 const buttoncontainer = document.createElement("div");
                 buttoncontainer.classList = "task-buttons";
-                buttoncontainer.appendChild(completeTask);
                 buttoncontainer.appendChild(editTask);
                 buttoncontainer.appendChild(deleteTask);
 
